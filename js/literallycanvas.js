@@ -612,7 +612,7 @@ module.exports = LiterallyCanvas = (function() {
     if (!(opts.rect.width && opts.rect.height)) {
       return;
     }
-    return ("<svg xmlns='http://www.w3.org/2000/svg' width='" + width + "' height='" + height + "' viewBox='0 0 " + width + " " + height + "'> <rect width='" + width + "' height='" + height + "' x='0' y='0' fill='" + this.colors.background + "' /> <g transform='translate(" + (-x) + ", " + (-y) + ")'> " + (this.backgroundShapes.map(function(s) {
+    return ("<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='" + width + "' height='" + height + "' viewBox='0 0 " + width + " " + height + "'> <rect width='" + width + "' height='" + height + "' x='0' y='0' fill='" + this.colors.background + "' /> <g transform='translate(" + (-x) + ", " + (-y) + ")'> " + (this.backgroundShapes.map(function(s) {
       return s.toSVG();
     }).join('')) + " " + (this.shapes.map(function(s) {
       return s.toSVG();
@@ -1761,7 +1761,7 @@ defineShape('Line', {
     if (this.endCapShapes[1]) {
       capString += lineEndCapShapes[this.endCapShapes[1]].svg(this.x2, this.y2, Math.atan2(this.y2 - this.y1, this.x2 - this.x1), arrowWidth, this.color);
     }
-    return "<g> <line x1='" + this.x1 + "' y1='" + this.y1 + "' x2='" + this.x2 + "' y2='" + this.y2 + "' " + dashString + " stroke-linecap='" + this.capStyle + "' stroke='" + this.color + "'stroke-width='" + this.strokeWidth + "' /> " + capString + " <g>";
+    return "<g> <line x1='" + this.x1 + "' y1='" + this.y1 + "' x2='" + this.x2 + "' y2='" + this.y2 + "' " + dashString + " stroke-linecap='" + this.capStyle + "' stroke='" + this.color + "' stroke-width='" + this.strokeWidth + "' /> " + capString + " <g>";
   }
 });
 
